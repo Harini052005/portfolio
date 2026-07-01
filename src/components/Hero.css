@@ -1,0 +1,43 @@
+.hero{
+    height:100vh;
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+    padding:0 8%;
+    background:#020617;
+    color:white;
+    }
+    
+    .hero h1{
+    font-size:60px;
+    }
+    
+    .hero span{
+    color:#38bdf8;
+    }
+    
+    .hero h2{
+    margin:20px 0;
+    color:#60a5fa;
+    }
+    
+    .hero p{
+    width:500px;
+    line-height:30px;
+    }
+    
+    .hero button{
+    margin-top:30px;
+    padding:12px 25px;
+    border:none;
+    background:#3b82f6;
+    color:white;
+    font-size:18px;
+    border-radius:8px;
+    cursor:pointer;
+    }
+    
+    .hero img{
+    width:350px;
+    border-radius:50%;
+    }
