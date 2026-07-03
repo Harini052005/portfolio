@@ -1,5 +1,7 @@
 import { Typewriter } from "react-simple-typewriter";
-import resumePdf from "../assets/HARINI_RESUME.pdf";
+// @ts-ignore
+import resumePdf from "../assets/Harini-Resume.pdf";
+// @ts-ignore
 import profileImage from "../assets/profile.jpeg";
 
 function Hero() {
@@ -15,6 +17,8 @@ function Hero() {
         <h2>
           <Typewriter
             words={[
+              "Junior Software Engineer",
+              "FullStack Developer",
               "Frontend Developer",
               "React Developer",
               "Java Programmer",
@@ -26,14 +30,14 @@ function Hero() {
         </h2>
 
         <p>
-          Passionate about creating beautiful and responsive web applications.
+        Turning ideas into reliable software through thoughtful design, clean code, and continuous learning.
         </p>
 
         <div className="heroActions">
           <a
             className="resumeBtn"
             href={resumePdf}
-            download="HARINI_RESUME.pdf"
+            download="Harini-Resume.pdf"
           >
             Download Resume
           </a>

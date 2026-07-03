@@ -1,72 +1,33 @@
-import { useState } from "react";
+import { FaEnvelope, FaGithub, FaPhoneAlt } from "react-icons/fa";
 
+const contactPhone = "+91 9245715348";
 const contactEmail = "harinikannan065@gmail.com";
+const githubUrl = "https://github.com/Harini052005";
 
 function Contact() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
-  const [status, setStatus] = useState("");
-
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-
-    setFormData((currentData) => ({
-      ...currentData,
-      [name]: value,
-    }));
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-
-    const subject = encodeURIComponent(`Portfolio message from ${formData.name}`);
-    const body = encodeURIComponent(
-      `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
-    );
-
-    window.location.href = `mailto:${contactEmail}?subject=${subject}&body=${body}`;
-    setStatus("Your email app is opening with the message ready to send.");
-    setFormData({ name: "", email: "", message: "" });
-  };
-
   return (
     <section id="contact" className="contact">
       <h1>Contact Me</h1>
 
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          name="name"
-          placeholder="Name"
-          value={formData.name}
-          onChange={handleChange}
-          required
-        />
+      <div className="contactLinks">
+        <a href={`tel:${contactPhone.replace(/\s/g, "")}`}>
+          <FaPhoneAlt className="contactIcon" aria-hidden="true" />
+          <span>Phone</span>
+          <strong>{contactPhone}</strong>
+        </a>
 
-        <input
-          type="email"
-          name="email"
-          placeholder="Email"
-          value={formData.email}
-          onChange={handleChange}
-          required
-        />
+        <a href={`mailto:${contactEmail}`}>
+          <FaEnvelope className="contactIcon" aria-hidden="true" />
+          <span>Email</span>
+          <strong>{contactEmail}</strong>
+        </a>
 
-        <textarea
-          name="message"
-          placeholder="Message"
-          value={formData.message}
-          onChange={handleChange}
-          required
-        />
-
-        <button type="submit">Send</button>
-
-        {status && <p className="formStatus">{status}</p>}
-      </form>
+        <a href={githubUrl} target="_blank" rel="noreferrer">
+          <FaGithub className="contactIcon" aria-hidden="true" />
+          <span>GitHub</span>
+          <strong>{githubUrl.replace("https://", "")}</strong>
+        </a>
+      </div>
     </section>
   );
 }
