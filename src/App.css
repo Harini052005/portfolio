@@ -53,6 +53,23 @@ body::before {
   color: #38bdf8;
 }
 
+.menuToggle {
+  display: none;
+  border: none;
+  background: transparent;
+  color: #cbd5e1;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 999px;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.menuToggle:hover {
+  background: rgba(56, 189, 248, 0.12);
+  transform: translateY(-1px);
+}
+
 .navbar ul {
   display: flex;
   align-items: center;
@@ -60,6 +77,10 @@ body::before {
   padding: 0;
   margin: 0;
   list-style: none;
+}
+
+.navbar ul.open {
+  display: flex;
 }
 
 .navbar a {
@@ -303,6 +324,9 @@ body::before {
   gap: 8px;
   min-height: 42px;
   padding: 0 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .secondaryProjectLink {
@@ -373,19 +397,51 @@ footer p {
 
 @media (max-width: 900px) {
   .navbar {
-    align-items: flex-start;
-    flex-direction: column;
+    position: relative;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
     padding: 16px 6%;
   }
 
+  .menuToggle {
+    display: inline-flex;
+  }
+
   .navbar ul {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    display: grid;
     width: 100%;
-    flex-wrap: wrap;
-    gap: 6px;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(-8px);
+    transition: max-height 0.32s ease, opacity 0.32s ease, transform 0.32s ease;
+    flex-direction: column;
+    gap: 8px;
+    margin: 12px 0 0;
+    padding: 0 16px;
+    background: rgba(2, 6, 23, 0.95);
+    border-radius: 16px;
+  }
+
+  .navbar ul.open {
+    max-height: 520px;
+    opacity: 1;
+    transform: translateY(0);
+    padding: 16px;
+  }
+
+  .navbar li {
+    width: 100%;
   }
 
   .navbar a {
-    padding: 7px 10px;
+    width: 100%;
+    padding: 12px 14px;
   }
 
   .hero,
@@ -400,6 +456,10 @@ footer p {
     min-height: auto;
     grid-template-columns: 1fr;
     text-align: left;
+  }
+
+  .hero .right {
+    margin-top: 36px;
   }
 
   .grid {
@@ -426,9 +486,14 @@ footer p {
     padding: 22px;
   }
 
-  .heroActions,
+  .heroActions {
+    width: 100%;
+    flex-direction: column;
+  }
+
   .resumeBtn,
-  .secondaryBtn {
+  .secondaryBtn,
+  .projectLink {
     width: 100%;
   }
 
@@ -439,9 +504,73 @@ footer p {
   .contactLinks a {
     align-items: flex-start;
     grid-template-columns: 26px 1fr;
+    padding: 16px;
   }
 
   .contactLinks strong {
     grid-column: 2;
+  }
+}
+
+@media (max-width: 420px) {
+  .navbar {
+    padding: 16px 4%;
+  }
+
+  .navbar h2 {
+    font-size: 20px;
+  }
+
+  .navbar ul {
+    gap: 5px;
+  }
+
+  .navbar a {
+    padding: 7px 8px;
+    font-size: 14px;
+  }
+
+  .hero,
+  .about,
+  .skills,
+  .projects,
+  .contact {
+    padding: 56px 4%;
+  }
+
+  .left h1 {
+    font-size: clamp(32px, 10vw, 56px);
+  }
+
+  .left h2,
+  .left p,
+  .about p {
+    font-size: 15px;
+  }
+
+  .heroActions,
+  .projectActions {
+    gap: 10px;
+  }
+
+  .projectCard {
+    padding: 20px;
+  }
+
+  .contactLinks a {
+    grid-template-columns: 24px 1fr;
+    gap: 14px;
+  }
+
+  .contactIcon {
+    font-size: 20px;
+  }
+
+  .contactLinks span {
+    font-size: 12px;
+  }
+
+  .contactLinks strong {
+    font-size: 16px;
   }
 }

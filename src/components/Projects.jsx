@@ -13,6 +13,11 @@ const projects = [
     githubUrl: "https://github.com/Harini052005/Smart-Hostel-Management-System",
   },
   {
+    title: "TransitOps - Smart Transport Mangement System",
+    desc: "A full-stack transport operations system for managing vehicles, drivers, trips, maintenance, expenses, and role-based analytics in one secure dashboard.",
+    githubUrl: "https://github.com/Ranjitha04-S/TransitOps",
+  },
+  {
     title: "PhonePe Backend Clone",
     desc: "A backend-driven digital payments platform that simulates core fintech workflows, emphasizing scalable architecture, secure transaction processing, and efficient API design.",
     githubUrl: "https://github.com/Harini052005/PhonePe-Backend-Clone",
