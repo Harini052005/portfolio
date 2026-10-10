@@ -1,3 +1,10 @@
+/* Cherry Blossom Palette:
+   #F2C7C7 - Soft Blush Pink
+   #FFFFFF - Crisp Pure White
+   #D5F3D8 - Fresh Matcha Mint
+   #FFB7C5 - Cherry Blossom Pink
+*/
+
 html {
   scroll-behavior: smooth;
 }
@@ -5,10 +12,15 @@ html {
 body {
   min-width: 320px;
   overflow-x: hidden;
-  background:
-    radial-gradient(circle at top left, rgba(56, 189, 248, 0.18), transparent 34rem),
-    radial-gradient(circle at 85% 15%, rgba(34, 197, 94, 0.12), transparent 26rem),
-    #020617;
+  background-color: #ffffff;
+  background-image:
+    radial-gradient(circle at 8% 12%, rgba(255, 183, 197, 0.32), transparent 36rem),
+    radial-gradient(circle at 92% 16%, rgba(213, 243, 216, 0.45), transparent 32rem),
+    radial-gradient(circle at 50% 60%, rgba(242, 199, 199, 0.25), transparent 42rem),
+    radial-gradient(circle at 85% 88%, rgba(213, 243, 216, 0.35), transparent 36rem),
+    radial-gradient(circle at 12% 92%, rgba(255, 183, 197, 0.28), transparent 34rem);
+  background-attachment: fixed;
+  color: #1d151f;
 }
 
 body::before {
@@ -18,15 +30,19 @@ body::before {
   z-index: -1;
   pointer-events: none;
   background-image:
-    linear-gradient(rgba(148, 163, 184, 0.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(148, 163, 184, 0.08) 1px, transparent 1px);
-  background-size: 64px 64px;
-  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), transparent 70%);
+    linear-gradient(rgba(242, 199, 199, 0.22) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(242, 199, 199, 0.22) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(circle at center, rgba(0, 0, 0, 0.9) 30%, rgba(0, 0, 0, 0.1) 85%);
 }
 
 #root {
   min-height: 100vh;
 }
+
+/* ==========================================================================
+   Navigation Bar
+   ========================================================================== */
 
 .navbar {
   position: sticky;
@@ -37,66 +53,73 @@ body::before {
   justify-content: space-between;
   gap: 24px;
   padding: 18px 8%;
-  background: rgba(2, 6, 23, 0.82);
-  border-bottom: 1px solid rgba(148, 163, 184, 0.16);
-  backdrop-filter: blur(18px);
+  background: rgba(255, 255, 255, 0.88);
+  border-bottom: 1px solid rgba(242, 199, 199, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 4px 20px rgba(255, 183, 197, 0.12);
+  transition: all 0.3s ease;
 }
 
 .navbar h2 {
   margin: 0;
-  color: #f8fafc;
-  font-size: 24px;
+  color: #1d151f;
+  font-size: 26px;
   font-weight: 800;
+  letter-spacing: -0.5px;
 }
 
 .navbar h2::first-letter {
-  color: #38bdf8;
+  color: #d43f6b;
 }
 
 .menuToggle {
   display: none;
-  border: none;
-  background: transparent;
-  color: #cbd5e1;
-  font-size: 24px;
+  border: 1px solid rgba(242, 199, 199, 0.6);
+  background: rgba(255, 255, 255, 0.8);
+  color: #1d151f;
+  font-size: 20px;
   cursor: pointer;
-  padding: 8px;
-  border-radius: 999px;
-  transition: background 0.2s ease, transform 0.2s ease;
+  padding: 9px 12px;
+  border-radius: 12px;
+  transition: all 0.2s ease;
 }
 
 .menuToggle:hover {
-  background: rgba(56, 189, 248, 0.12);
+  background: #fff0f3;
+  color: #d43f6b;
   transform: translateY(-1px);
 }
 
 .navbar ul {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   padding: 0;
   margin: 0;
   list-style: none;
 }
 
-.navbar ul.open {
-  display: flex;
-}
-
 .navbar a {
   display: inline-flex;
-  padding: 8px 14px;
-  color: #cbd5e1;
+  padding: 8px 16px;
+  color: #4a3e49;
+  font-weight: 600;
+  font-size: 15px;
   text-decoration: none;
   border-radius: 999px;
-  transition: color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+  transition: all 0.2s ease;
 }
 
 .navbar a:hover {
-  color: #f8fafc;
-  background: rgba(56, 189, 248, 0.14);
+  color: #d43f6b;
+  background: #fff0f3;
   transform: translateY(-1px);
 }
+
+/* ==========================================================================
+   Section Layouts
+   ========================================================================== */
 
 .hero,
 .about,
@@ -106,55 +129,63 @@ body::before {
   padding: 96px 8%;
 }
 
+/* ==========================================================================
+   Hero Section
+   ========================================================================== */
+
 .hero {
-  min-height: calc(100vh - 70px);
+  min-height: calc(100vh - 72px);
   display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.9fr);
+  grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
   align-items: center;
-  gap: 56px;
-  color: #f8fafc;
+  gap: 60px;
+  color: #1d151f;
+  position: relative;
 }
 
 .left h3 {
   width: fit-content;
   margin: 0 0 18px;
-  padding: 8px 14px;
-  color: #7dd3fc;
-  font-size: 15px;
+  padding: 8px 18px;
+  color: #1b4e29;
+  font-size: 14px;
   font-weight: 700;
-  letter-spacing: 0.4px;
-  background: rgba(14, 165, 233, 0.12);
-  border: 1px solid rgba(56, 189, 248, 0.24);
+  letter-spacing: 0.3px;
+  background: rgba(213, 243, 216, 0.7);
+  border: 1.5px solid rgba(144, 216, 154, 0.7);
   border-radius: 999px;
+  box-shadow: 0 4px 14px rgba(213, 243, 216, 0.5);
 }
 
 .left h1 {
   max-width: 720px;
   margin: 0;
-  color: #f8fafc;
-  font-size: clamp(44px, 8vw, 82px);
-  line-height: 0.98;
-  letter-spacing: 0;
+  color: #1d151f;
+  font-size: clamp(44px, 7vw, 76px);
+  line-height: 1.05;
+  font-weight: 800;
+  letter-spacing: -1px;
 }
 
 .left h1 span {
-  color: #38bdf8;
+  background: linear-gradient(135deg, #d43f6b 0%, #e0537a 50%, #ff85a1 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .left h2 {
   min-height: 42px;
-  margin: 22px 0;
-  color: #86efac;
-  font-size: clamp(24px, 4vw, 38px);
-  font-weight: 800;
-  letter-spacing: 0;
+  margin: 20px 0;
+  color: #d43f6b;
+  font-size: clamp(22px, 3.8vw, 34px);
+  font-weight: 700;
 }
 
 .left p {
-  max-width: 590px;
+  max-width: 580px;
   margin: 0;
-  color: #cbd5e1;
-  font-size: 19px;
+  color: #524350;
+  font-size: 18px;
   line-height: 1.8;
 }
 
@@ -162,7 +193,7 @@ body::before {
   display: flex;
   flex-wrap: wrap;
   gap: 14px;
-  margin-top: 32px;
+  margin-top: 34px;
 }
 
 .resumeBtn,
@@ -172,217 +203,1254 @@ body::before {
   align-items: center;
   justify-content: center;
   min-height: 48px;
-  padding: 0 24px;
-  color: #02111f;
+  padding: 0 26px;
   font: inherit;
-  font-weight: 800;
+  font-weight: 700;
+  font-size: 15px;
   text-decoration: none;
-  background: linear-gradient(135deg, #38bdf8, #86efac);
-  border: 0;
-  border-radius: 8px;
-  box-shadow: 0 18px 42px rgba(56, 189, 248, 0.24);
+  border-radius: 14px;
   cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.resumeBtn,
+.projectLink {
+  color: #2d111b;
+  background: linear-gradient(135deg, #ffb7c5 0%, #f2c7c7 50%, #d5f3d8 100%);
+  background-size: 200% 200%;
+  background-position: 0% 50%;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 12px 30px rgba(255, 183, 197, 0.42);
 }
 
 .secondaryBtn {
-  color: #e2e8f0;
-  background: rgba(15, 23, 42, 0.72);
-  border: 1px solid rgba(148, 163, 184, 0.22);
-  box-shadow: none;
+  color: #1d151f;
+  background: #ffffff;
+  border: 1.5px solid rgba(242, 199, 199, 0.85);
+  box-shadow: 0 6px 18px rgba(242, 199, 199, 0.2);
 }
 
 .resumeBtn:hover,
-.secondaryBtn:hover,
 .projectLink:hover {
   transform: translateY(-2px);
-  box-shadow: 0 24px 54px rgba(56, 189, 248, 0.3);
+  background-position: 100% 50%;
+  box-shadow: 0 18px 40px rgba(255, 183, 197, 0.55);
 }
+
+.secondaryBtn:hover {
+  transform: translateY(-2px);
+  background: #fff8f9;
+  border-color: #ffb7c5;
+  color: #d43f6b;
+  box-shadow: 0 10px 24px rgba(255, 183, 197, 0.25);
+}
+
+/* ==========================================================================
+   UNIQUE PROFILE IMAGE PRESENTATION (Cherry Blossom Theme)
+   - Vertical portrait preservation (natural 4:5.2 ratio)
+   - Asymmetrical architectural curves (not a boring circle!)
+   - Multi-layered tilted matcha & cherry backdrop cards
+   - Floating interactive status & title badges
+   ========================================================================== */
 
 .right {
   display: flex;
   justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.profileWrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  margin: 20px auto;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.profileWrapper:hover {
+  transform: translateY(-4px);
+}
+
+/* Soft Mint / Matcha Offset Layer */
+.profileBackdrop.backdropMint {
+  position: absolute;
+  inset: -14px -12px -16px -12px;
+  background: linear-gradient(145deg, #d5f3d8 0%, rgba(213, 243, 216, 0.75) 100%);
+  border-radius: 40px 14px 44px 18px;
+  transform: rotate(-4.5deg);
+  z-index: 0;
+  box-shadow: 0 20px 42px rgba(180, 230, 186, 0.45);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Soft Sakura Blossom Offset Layer */
+.profileBackdrop.backdropPink {
+  position: absolute;
+  inset: -10px -16px -10px -14px;
+  background: linear-gradient(135deg, #ffb7c5 0%, #f2c7c7 100%);
+  border-radius: 20px 48px 16px 42px;
+  transform: rotate(3.5deg);
+  opacity: 0.9;
+  z-index: 1;
+  box-shadow: 0 20px 45px rgba(255, 183, 197, 0.4);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.profileWrapper:hover .backdropMint {
+  transform: rotate(-2deg) scale(1.02);
+}
+
+.profileWrapper:hover .backdropPink {
+  transform: rotate(1.5deg) scale(1.02);
+}
+
+/* Foreground Architectural Portrait Card */
+.profileCard {
+  position: relative;
+  z-index: 2;
+  width: min(340px, 82vw);
+  aspect-ratio: 4 / 5.2;
+  background: #ffffff;
+  padding: 10px;
+  border-radius: 36px 14px 38px 18px;
+  border: 2px solid #ffffff;
+  box-shadow:
+    0 24px 55px rgba(74, 38, 54, 0.12),
+    0 10px 24px rgba(255, 183, 197, 0.2);
+}
+
+.profileImageFrame {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 28px 10px 30px 14px;
+  position: relative;
 }
 
 .profileImage {
-  position: relative;
-  width: min(360px, 82vw);
-  aspect-ratio: 1;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  object-position: center;
-  padding: 10px;
-  background: linear-gradient(135deg, rgba(56, 189, 248, 0.42), rgba(134, 239, 172, 0.34));
-  border: 1px solid rgba(148, 163, 184, 0.28);
-  border-radius: 50%;
-  box-shadow: 0 34px 90px rgba(0, 0, 0, 0.36);
+  object-position: 50% 46%;
+  transform: scale(1.36);
+  transform-origin: 50% 40%;
+  display: block;
+  filter: contrast(1.02) saturate(1.03);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
+
+.profileWrapper:hover .profileImage {
+  transform: scale(1.42);
+}
+
+/* Floating Status and Role Badges */
+.profileBadge {
+  position: absolute;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 700;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  transition: all 0.3s ease;
+}
+
+.statusBadge {
+  bottom: -8px;
+  left: -14px;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1.5px solid #d5f3d8;
+  color: #1e4d2b;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+  animation: badgeFloat 4s ease-in-out infinite;
+}
+
+.techBadge {
+  top: -10px;
+  right: -14px;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1.5px solid #f2c7c7;
+  color: #c83b60;
+  box-shadow: 0 10px 24px rgba(255, 183, 197, 0.28);
+  animation: badgeFloat 4s ease-in-out infinite 2s;
+}
+
+.statusDot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #34d399;
+  box-shadow: 0 0 0 3px rgba(52, 211, 153, 0.3);
+  display: inline-block;
+  animation: pulseDot 2s infinite;
+}
+
+@keyframes pulseDot {
+  0% {
+    box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.6);
+  }
+  70% {
+    box-shadow: 0 0 0 8px rgba(52, 211, 153, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(52, 211, 153, 0);
+  }
+}
+
+@keyframes badgeFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+/* ==========================================================================
+   Shared Section Heading
+   ========================================================================== */
 
 .about,
 .whatIDo,
+.publications,
+.hackathons,
 .skills,
 .projects,
 .contact {
-  color: #e2e8f0;
-  border-top: 1px solid rgba(148, 163, 184, 0.12);
-  padding-top: 120px;
+  color: #1d151f;
+  border-top: 1px solid rgba(242, 199, 199, 0.45);
+  padding-top: 108px;
 }
 
 .about h1,
 .whatIDo h1,
+.publications h1,
+.hackathons h1,
 .skills h1,
 .projects h1,
 .contact h1 {
-  margin: 0 0 32px;
-  color: #f8fafc;
-  font-size: clamp(32px, 5vw, 48px);
-  line-height: 1.1;
+  margin: 0 0 36px;
+  color: #1d151f;
+  font-size: clamp(32px, 5vw, 46px);
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  line-height: 1.15;
   text-align: center;
+  position: relative;
+}
+
+.about h1::after,
+.whatIDo h1::after,
+.publications h1::after,
+.hackathons h1::after,
+.skills h1::after,
+.projects h1::after,
+.contact h1::after {
+  content: "";
+  display: block;
+  width: 54px;
+  height: 4px;
+  margin: 12px auto 0;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #ffb7c5, #d5f3d8);
 }
 
 .whatIDo h1,
+.publications h1,
+.hackathons h1,
 .skills h1,
 .projects h1,
 .contact h1 {
   margin-top: 0;
 }
 
+/* ==========================================================================
+   About Section
+   ========================================================================== */
+
 .about p {
   max-width: 860px;
   margin: 0 auto;
-  padding: 34px;
-  color: #cbd5e1;
-  font-size: 19px;
+  padding: 38px 42px;
+  color: #4a3e49;
+  font-size: 18px;
   line-height: 1.9;
   text-align: center;
-  background: rgba(15, 23, 42, 0.66);
-  border: 1px solid rgba(148, 163, 184, 0.16);
-  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1.5px solid rgba(242, 199, 199, 0.65);
+  border-radius: 24px;
+  box-shadow:
+    0 16px 36px rgba(255, 183, 197, 0.16),
+    0 4px 12px rgba(213, 243, 216, 0.2);
 }
 
-.grid,
-.projectGrid {
-  display: grid;
-  gap: 22px;
+/* ==========================================================================
+   Education Timeline (Cherry Blossom Theme)
+   ========================================================================== */
+
+.educationSection {
+  margin-top: 64px;
+  width: 100%;
 }
 
-.grid {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-}
-
-.card,
-.projectCard {
-  background: rgba(15, 23, 42, 0.72);
-  border: 1px solid rgba(148, 163, 184, 0.16);
-  border-radius: 8px;
-  transition: border-color 0.2s ease, transform 0.2s ease, background 0.2s ease;
-}
-
-.card {
+.educationHeader {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
   gap: 12px;
-  min-height: 96px;
-  color: #f8fafc;
+  margin-bottom: 44px;
+}
+
+.eduHeaderIcon {
+  color: #d43f6b;
+  font-size: 28px;
+}
+
+.educationHeader h2 {
+  margin: 0;
+  color: #1d151f;
+  font-size: clamp(22px, 3.5vw, 30px);
+  font-weight: 800;
+  letter-spacing: -0.3px;
+}
+
+.timelineContainer {
+  position: relative;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 10px 0 20px;
+}
+
+.timelineTrack {
+  position: absolute;
+  top: 10px;
+  bottom: 20px;
+  left: 50%;
+  width: 4px;
+  background: linear-gradient(180deg, #ffb7c5 0%, #f2c7c7 45%, #d5f3d8 100%);
+  transform: translateX(-50%);
+  border-radius: 999px;
+  box-shadow: 0 0 12px rgba(255, 183, 197, 0.4);
+}
+
+.timelineItem {
+  position: relative;
+  width: 50%;
+  padding: 14px 34px;
+  box-sizing: border-box;
+}
+
+.timelineLeft {
+  left: 0;
+}
+
+.timelineRight {
+  left: 50%;
+}
+
+.timelineNode {
+  position: absolute;
+  top: 26px;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 3px solid #ffb7c5;
+  box-shadow: 0 4px 16px rgba(255, 183, 197, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #d43f6b;
+  font-size: 15px;
+  z-index: 2;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.timelineLeft .timelineNode {
+  right: -19px;
+}
+
+.timelineRight .timelineNode {
+  left: -19px;
+}
+
+.timelineItem:hover .timelineNode {
+  transform: scale(1.2);
+  background: linear-gradient(135deg, #ffb7c5, #f2c7c7);
+  color: #ffffff;
+  border-color: #ffffff;
+  box-shadow: 0 6px 20px rgba(255, 183, 197, 0.6);
+}
+
+.timelineCard {
+  background: rgba(255, 255, 255, 0.94);
+  border: 1.5px solid rgba(242, 199, 199, 0.65);
+  border-radius: 20px;
+  padding: 24px 26px;
+  box-shadow: 0 10px 28px rgba(255, 183, 197, 0.15);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  text-align: left;
+}
+
+.timelineItem:hover .timelineCard {
+  transform: translateY(-5px);
+  background: #ffffff;
+  border-color: #ffb7c5;
+  box-shadow: 0 18px 40px rgba(255, 183, 197, 0.28);
+}
+
+.timelineCardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.timelinePeriod {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #4a3e49;
+  background: #fff0f3;
+  padding: 4px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(242, 199, 199, 0.7);
+}
+
+.timelineBadge {
+  font-size: 12px;
+  font-weight: 800;
+  padding: 4px 12px;
+  border-radius: 999px;
+}
+
+.pursuingBadge {
+  background: rgba(213, 243, 216, 0.85);
+  border: 1.5px solid rgba(134, 210, 142, 0.85);
+  color: #1e4d2b;
+  box-shadow: 0 2px 8px rgba(213, 243, 216, 0.5);
+}
+
+.completedBadge {
+  background: #fff8f9;
+  border: 1px solid rgba(242, 199, 199, 0.7);
+  color: #766572;
+}
+
+.timelineDegree {
+  margin: 0 0 12px;
+  color: #1d151f;
   font-size: 18px;
   font-weight: 800;
+  line-height: 1.35;
 }
 
-.skillIcon {
-  color: #38bdf8;
-  font-size: 34px;
+.timelineInstitution {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 14px;
+  font-size: 14px;
+  color: #4a3e49;
+  line-height: 1.5;
 }
 
-.card:hover,
-.projectCard:hover,
-.whatCard:hover {
-  transform: translateY(-6px);
-  background: rgba(15, 23, 42, 0.92);
-  border-color: rgba(56, 189, 248, 0.42);
+.institutionIcon {
+  color: #d43f6b;
+  font-size: 16px;
+  margin-top: 3px;
+  flex-shrink: 0;
 }
+
+.affiliationText {
+  display: block;
+  font-size: 13px;
+  color: #7e6c7a;
+  margin-top: 2px;
+}
+
+.timelineScore {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #1e4d2b;
+  background: rgba(213, 243, 216, 0.6);
+  border: 1px solid rgba(144, 216, 154, 0.7);
+  padding: 5px 14px;
+  border-radius: 12px;
+  font-weight: 600;
+}
+
+.scoreIcon {
+  color: #1e4d2b;
+}
+
+@media (max-width: 768px) {
+  .timelineTrack {
+    left: 20px;
+  }
+
+  .timelineItem {
+    width: 100%;
+    left: 0;
+    padding-left: 54px;
+    padding-right: 0;
+  }
+
+  .timelineLeft,
+  .timelineRight {
+    left: 0;
+  }
+
+  .timelineNode,
+  .timelineLeft .timelineNode,
+  .timelineRight .timelineNode {
+    left: 2px;
+    right: auto;
+  }
+}
+
+/* ==========================================================================
+   What I Do Section
+   ========================================================================== */
 
 .whatGrid,
 .projectGrid {
   display: grid;
-  gap: 32px;
+  gap: 28px;
   width: min(1320px, 100%);
   margin: 0 auto;
 }
 
 .whatGrid {
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 }
+
+.whatCard {
+  background: rgba(255, 255, 255, 0.92);
+  border: 1.5px solid rgba(242, 199, 199, 0.6);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 32px 28px;
+  min-height: 230px;
+  box-shadow: 0 10px 28px rgba(242, 199, 199, 0.18);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.whatCard:hover {
+  transform: translateY(-6px);
+  background: #ffffff;
+  border-color: #ffb7c5;
+  box-shadow: 0 20px 42px rgba(255, 183, 197, 0.3);
+}
+
+.whatIcon {
+  color: #d43f6b;
+  font-size: 34px;
+  transition: transform 0.3s ease;
+}
+
+.whatCard:hover .whatIcon {
+  transform: scale(1.1);
+}
+
+.whatCard h2 {
+  margin: 0;
+  color: #1d151f;
+  font-size: 21px;
+  font-weight: 700;
+}
+
+.whatCard p {
+  margin: 0;
+  color: #524350;
+  font-size: 15px;
+  line-height: 1.75;
+}
+
+/* ==========================================================================
+   Publications Section (Cherry Blossom Theme)
+   ========================================================================== */
+
+.publications {
+  padding: 96px 8%;
+}
+
+.publicationsGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  width: min(1180px, 100%);
+  margin: 0 auto;
+}
+
+.publicationCard {
+  position: relative;
+  background: rgba(255, 255, 255, 0.94);
+  border: 1.5px solid rgba(242, 199, 199, 0.6);
+  border-radius: 24px;
+  padding: 34px 38px;
+  box-shadow: 0 12px 36px rgba(255, 183, 197, 0.16);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.publicationCard:hover {
+  transform: translateY(-5px);
+  background: #ffffff;
+  border-color: #ffb7c5;
+  box-shadow: 0 20px 48px rgba(255, 183, 197, 0.28);
+}
+
+.featuredAwardCard {
+  border: 2px solid #ffb7c5;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 240, 243, 0.5) 100%);
+  box-shadow: 0 18px 46px rgba(255, 183, 197, 0.26);
+}
+
+.awardBanner {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #ffb7c5 0%, #f2c7c7 100%);
+  color: #2b0e17;
+  font-weight: 800;
+  font-size: 14px;
+  letter-spacing: 0.2px;
+  padding: 6px 18px;
+  border-radius: 999px;
+  margin-bottom: 22px;
+  border: 1.5px solid #ffffff;
+  box-shadow: 0 4px 16px rgba(255, 183, 197, 0.45);
+}
+
+.awardTrophyIcon {
+  color: #2b0e17;
+  font-size: 15px;
+}
+
+.pubContentLayout.withMedia {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(320px, 0.95fr);
+  gap: 36px;
+  align-items: center;
+}
+
+.pubContentLayout.withoutMedia {
+  display: block;
+}
+
+.pubMeta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.pubYearBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #1e4d2b;
+  background: rgba(213, 243, 216, 0.8);
+  border: 1px solid rgba(134, 210, 142, 0.8);
+  padding: 4px 12px;
+  border-radius: 999px;
+}
+
+.pubConferenceBadge {
+  font-size: 13px;
+  font-weight: 700;
+  color: #c83b60;
+  background: #fff0f3;
+  border: 1px solid rgba(242, 199, 199, 0.75);
+  padding: 4px 14px;
+  border-radius: 999px;
+}
+
+.pubIsbnBadge {
+  font-size: 12px;
+  font-weight: 700;
+  color: #524350;
+  background: #fdf2f4;
+  border: 1px dashed rgba(242, 199, 199, 0.9);
+  padding: 4px 12px;
+  border-radius: 999px;
+}
+
+.pubTitle {
+  margin: 0 0 12px;
+  color: #1d151f;
+  font-size: clamp(20px, 3vw, 24px);
+  font-weight: 800;
+  line-height: 1.35;
+}
+
+.pubVenue {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #62505e;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.venueIcon {
+  color: #d43f6b;
+  font-size: 15px;
+}
+
+.pubAbstract {
+  color: #4a3e49;
+  font-size: 15px;
+  line-height: 1.75;
+  margin: 0 0 20px;
+}
+
+.pubTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.pubTag {
+  font-size: 12px;
+  font-weight: 700;
+  color: #1e4d2b;
+  background: rgba(213, 243, 216, 0.6);
+  border: 1px solid rgba(144, 216, 154, 0.6);
+  padding: 4px 12px;
+  border-radius: 8px;
+}
+
+/* Publication Media Showcase */
+.pubMediaContainer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pubMediaBackdrop {
+  position: absolute;
+  inset: -8px -8px -8px -8px;
+  background: linear-gradient(135deg, #d5f3d8 0%, #ffb7c5 100%);
+  border-radius: 24px;
+  transform: rotate(2deg);
+  z-index: 0;
+  opacity: 0.85;
+  box-shadow: 0 16px 36px rgba(255, 183, 197, 0.35);
+  transition: transform 0.4s ease;
+}
+
+.pubMediaContainer:hover .pubMediaBackdrop {
+  transform: rotate(1deg) scale(1.02);
+}
+
+.pubImageWrapper {
+  position: relative;
+  z-index: 1;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 3px solid #ffffff;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.12);
+  width: 100%;
+  aspect-ratio: 4 / 2.8;
+  background: #ffffff;
+}
+
+.pubAwardImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.pubImageWrapper:hover .pubAwardImage {
+  transform: scale(1.04);
+}
+
+.pubImageOverlay {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  z-index: 2;
+}
+
+.awardSticker {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 800;
+  color: #1e4d2b;
+  border: 1.5px solid #d5f3d8;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+.pubImageCaption {
+  margin: 14px 0 0;
+  font-size: 13px;
+  font-weight: 600;
+  color: #6d5b69;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 900px) {
+  .pubContentLayout.withMedia {
+    grid-template-columns: 1fr;
+  }
+
+  .publicationCard {
+    padding: 26px 20px;
+  }
+}
+
+/* ==========================================================================
+   Hackathon Experience Section (Cherry Blossom Theme)
+   ========================================================================== */
+
+.hackathons {
+  padding: 96px 8%;
+}
+
+.hackathonContainer {
+  width: min(1180px, 100%);
+  margin: 0 auto;
+}
+
+.hackathonCard {
+  position: relative;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 240, 243, 0.45) 100%);
+  border: 2px solid #ffb7c5;
+  border-radius: 26px;
+  padding: 38px 42px;
+  box-shadow: 0 16px 42px rgba(255, 183, 197, 0.22);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hackathonCard:hover {
+  transform: translateY(-5px);
+  background: #ffffff;
+  border-color: #ff8fa7;
+  box-shadow: 0 22px 52px rgba(255, 183, 197, 0.32);
+}
+
+.hackathonBanner {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #d5f3d8 0%, #ffb7c5 100%);
+  color: #1a3821;
+  font-weight: 800;
+  font-size: 14px;
+  letter-spacing: 0.2px;
+  padding: 6px 18px;
+  border-radius: 999px;
+  margin-bottom: 24px;
+  border: 1.5px solid #ffffff;
+  box-shadow: 0 4px 16px rgba(213, 243, 216, 0.55);
+}
+
+.hackathonTrophyIcon {
+  color: #1a3821;
+  font-size: 15px;
+}
+
+.hackathonLayout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(320px, 0.95fr);
+  gap: 40px;
+  align-items: center;
+}
+
+.hackathonMeta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.hackathonYearBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #1e4d2b;
+  background: rgba(213, 243, 216, 0.85);
+  border: 1px solid rgba(134, 210, 142, 0.85);
+  padding: 4px 12px;
+  border-radius: 999px;
+}
+
+.hackathonVenueBadge {
+  font-size: 13px;
+  font-weight: 700;
+  color: #c83b60;
+  background: #fff0f3;
+  border: 1px solid rgba(242, 199, 199, 0.75);
+  padding: 4px 14px;
+  border-radius: 999px;
+}
+
+.hackathonStatusBadge {
+  font-size: 12px;
+  font-weight: 800;
+  color: #1e4d2b;
+  background: rgba(213, 243, 216, 0.9);
+  border: 1.5px solid rgba(134, 210, 142, 0.9);
+  padding: 4px 12px;
+  border-radius: 999px;
+}
+
+.hackathonTitle {
+  margin: 0 0 16px;
+  color: #1d151f;
+  font-size: clamp(22px, 3.2vw, 28px);
+  font-weight: 800;
+  line-height: 1.3;
+}
+
+.hackathonDescription {
+  color: #4a3e49;
+  font-size: 16px;
+  line-height: 1.8;
+  margin: 0 0 24px;
+}
+
+.hackathonPillars {
+  display: grid;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.pillarItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 14px 18px;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1.5px solid rgba(242, 199, 199, 0.6);
+  border-radius: 16px;
+  box-shadow: 0 4px 14px rgba(242, 199, 199, 0.12);
+  transition: all 0.25s ease;
+}
+
+.pillarItem:hover {
+  background: #ffffff;
+  border-color: #ffb7c5;
+  transform: translateX(4px);
+  box-shadow: 0 6px 18px rgba(255, 183, 197, 0.22);
+}
+
+.pillarIcon {
+  font-size: 20px;
+  color: #d43f6b;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.pillarItem strong {
+  display: block;
+  color: #1d151f;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+.pillarItem p {
+  margin: 0;
+  color: #554452;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.hackathonTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.hackathonTag {
+  font-size: 12px;
+  font-weight: 700;
+  color: #1e4d2b;
+  background: rgba(213, 243, 216, 0.65);
+  border: 1px solid rgba(144, 216, 154, 0.65);
+  padding: 4px 12px;
+  border-radius: 8px;
+}
+
+/* Poster Media Showcase */
+.hackathonMedia {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hackathonMediaBackdrop {
+  position: absolute;
+  inset: -10px -10px -10px -10px;
+  background: linear-gradient(135deg, #d5f3d8 0%, #ffb7c5 100%);
+  border-radius: 26px;
+  transform: rotate(-2.5deg);
+  z-index: 0;
+  opacity: 0.85;
+  box-shadow: 0 18px 40px rgba(255, 183, 197, 0.35);
+  transition: transform 0.4s ease;
+}
+
+.hackathonMedia:hover .hackathonMediaBackdrop {
+  transform: rotate(-1deg) scale(1.02);
+}
+
+.hackathonImageWrapper {
+  position: relative;
+  z-index: 1;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 3px solid #ffffff;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.14);
+  width: 100%;
+  aspect-ratio: 3.5 / 4.6;
+  cursor: pointer;
+  background: #ffffff;
+}
+
+.hackathonImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.hackathonImageWrapper:hover .hackathonImage {
+  transform: scale(1.03);
+}
+
+.hackathonImageOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(29, 21, 31, 0.35);
+  opacity: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.3s ease;
+}
+
+.hackathonImageWrapper:hover .hackathonImageOverlay {
+  opacity: 1;
+}
+
+.zoomHint {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(8px);
+  padding: 10px 20px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 800;
+  color: #1d151f;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(242, 199, 199, 0.8);
+}
+
+.hackathonImageCaption {
+  margin: 14px 0 0;
+  font-size: 13px;
+  font-weight: 600;
+  color: #6d5b69;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+/* Lightbox Modal for Poster */
+.hackathonModalOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  background: rgba(15, 10, 18, 0.85);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  animation: fadeIn 0.25s ease;
+}
+
+.hackathonModalContent {
+  position: relative;
+  max-width: 90vw;
+  max-height: 92vh;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45);
+}
+
+.modalCloseBtn {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.95);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  color: #1d151f;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  transition: all 0.2s ease;
+}
+
+.modalCloseBtn:hover {
+  background: #ffb7c5;
+  color: #ffffff;
+  transform: scale(1.1);
+}
+
+.modalPosterImage {
+  max-width: 90vw;
+  max-height: 88vh;
+  object-fit: contain;
+  display: block;
+  border-radius: 12px;
+}
+
+@media (max-width: 900px) {
+  .hackathonLayout {
+    grid-template-columns: 1fr;
+  }
+
+  .hackathonCard {
+    padding: 28px 22px;
+  }
+}
+
+/* ==========================================================================
+   Skills Section
+   ========================================================================== */
+
+.grid {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  width: min(1320px, 100%);
+  margin: 0 auto;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.92);
+  border: 1.5px solid rgba(242, 199, 199, 0.6);
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 12px;
+  min-height: 110px;
+  color: #1d151f;
+  font-size: 16px;
+  font-weight: 700;
+  box-shadow: 0 8px 22px rgba(242, 199, 199, 0.15);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  background: #ffffff;
+  border-color: #a3e6af;
+  box-shadow: 0 16px 36px rgba(213, 243, 216, 0.6);
+}
+
+.skillIcon {
+  color: #d43f6b;
+  font-size: 34px;
+  transition: transform 0.25s ease;
+}
+
+.card:hover .skillIcon {
+  transform: scale(1.15);
+  color: #c83b60;
+}
+
+/* ==========================================================================
+   Projects Section
+   ========================================================================== */
 
 .projectGrid {
   grid-template-columns: repeat(3, minmax(280px, 1fr));
 }
 
-.whatCard,
 .projectCard {
-  background: rgba(15, 23, 42, 0.72);
-  border: 1px solid rgba(148, 163, 184, 0.16);
-  border-radius: 8px;
-  transition: border-color 0.2s ease, transform 0.2s ease, background 0.2s ease;
-}
-
-.whatCard {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+  background: rgba(255, 255, 255, 0.94);
+  border: 1.5px solid rgba(242, 199, 199, 0.6);
+  border-radius: 22px;
+  min-height: 250px;
   padding: 28px;
-  min-height: 220px;
-}
-
-.projectCard {
-  min-height: 180px;
-  padding: 24px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   text-align: left;
+  box-shadow: 0 10px 30px rgba(255, 183, 197, 0.16);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.projectCard p {
-  min-height: 48px;
-  margin: 0 0 22px;
-  color: #cbd5e1;
-  line-height: 1.7;
-}
-
-.whatIcon {
-  color: #38bdf8;
-  font-size: 34px;
-}
-
-.whatCard h2 {
-  margin: 0;
-  color: #f8fafc;
-  font-size: 22px;
-}
-
-.whatCard p {
-  margin: 0;
-  color: #cbd5e1;
-  line-height: 1.8;
-}
-
-.projectCard {
-  min-height: 230px;
-  padding: 26px;
-  text-align: left;
+.projectCard:hover {
+  transform: translateY(-6px);
+  background: #ffffff;
+  border-color: #ffb7c5;
+  box-shadow: 0 20px 45px rgba(255, 183, 197, 0.3);
 }
 
 .projectCard h2 {
-  margin: 0 0 14px;
-  color: #f8fafc;
-  font-size: 24px;
+  margin: 0 0 12px;
+  color: #1d151f;
+  font-size: 21px;
+  font-weight: 800;
+  line-height: 1.3;
 }
 
 .projectCard p {
-  min-height: 64px;
-  margin: 0 0 28px;
-  color: #cbd5e1;
+  min-height: 60px;
+  margin: 0 0 24px;
+  color: #524350;
+  font-size: 15px;
   line-height: 1.7;
 }
 
@@ -395,18 +1463,28 @@ body::before {
 .projectLink {
   gap: 8px;
   min-height: 42px;
-  padding: 0 18px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  padding: 0 20px;
+  font-size: 14px;
+  font-weight: 700;
 }
 
 .secondaryProjectLink {
-  color: #e2e8f0;
-  background: rgba(15, 23, 42, 0.72);
-  border: 1px solid rgba(148, 163, 184, 0.22);
-  box-shadow: none;
+  color: #1e4d2b;
+  background: rgba(213, 243, 216, 0.65);
+  border: 1.5px solid rgba(144, 216, 154, 0.7);
+  box-shadow: 0 6px 18px rgba(213, 243, 216, 0.35);
 }
+
+.secondaryProjectLink:hover {
+  background: #d5f3d8;
+  color: #133a1e;
+  border-color: #72cb83;
+  box-shadow: 0 12px 28px rgba(213, 243, 216, 0.6);
+}
+
+/* ==========================================================================
+   Contact Section
+   ========================================================================== */
 
 .contactLinks {
   width: min(680px, 100%);
@@ -417,62 +1495,89 @@ body::before {
 
 .contactLinks a {
   display: grid;
-  grid-template-columns: 28px minmax(78px, 0.32fr) minmax(0, 1fr);
+  grid-template-columns: 32px minmax(78px, 0.3fr) minmax(0, 1fr);
   align-items: center;
   gap: 18px;
-  padding: 18px 20px;
-  color: #f8fafc;
-  font-size: 18px;
+  padding: 18px 24px;
+  color: #1d151f;
+  font-size: 16px;
   font-weight: 700;
   text-decoration: none;
-  background: rgba(15, 23, 42, 0.72);
-  border: 1px solid rgba(148, 163, 184, 0.18);
-  border-radius: 8px;
-  transition: border-color 0.2s ease, transform 0.2s ease, background 0.2s ease;
+  background: rgba(255, 255, 255, 0.94);
+  border: 1.5px solid rgba(242, 199, 199, 0.6);
+  border-radius: 18px;
+  box-shadow: 0 8px 24px rgba(242, 199, 199, 0.18);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .contactIcon {
-  color: #38bdf8;
+  color: #d43f6b;
   font-size: 22px;
+  transition: transform 0.2s ease;
 }
 
 .contactLinks a:hover {
   transform: translateY(-3px);
-  background: rgba(15, 23, 42, 0.92);
-  border-color: rgba(56, 189, 248, 0.42);
+  background: #ffffff;
+  border-color: #ffb7c5;
+  box-shadow: 0 16px 36px rgba(255, 183, 197, 0.3);
+}
+
+.contactLinks a:hover .contactIcon {
+  transform: scale(1.15);
 }
 
 .contactLinks span {
-  color: #86efac;
-  font-size: 14px;
+  color: #1e4d2b;
+  font-size: 12px;
   font-weight: 800;
   text-transform: uppercase;
+  letter-spacing: 0.5px;
+  background: rgba(213, 243, 216, 0.75);
+  border: 1px solid rgba(144, 216, 154, 0.6);
+  padding: 4px 10px;
+  border-radius: 999px;
+  width: fit-content;
 }
 
 .contactLinks strong {
   min-width: 0;
   overflow-wrap: anywhere;
-  font-size: 18px;
+  font-size: 16px;
+  color: #1d151f;
 }
 
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+
 footer {
-  padding: 28px 8%;
-  color: #94a3b8;
+  padding: 32px 8%;
+  color: #7e6c7a;
   text-align: center;
-  background: rgba(2, 6, 23, 0.72);
-  border-top: 1px solid rgba(148, 163, 184, 0.12);
+  font-size: 14px;
+  background: rgba(255, 255, 255, 0.85);
+  border-top: 1px solid rgba(242, 199, 199, 0.5);
+  backdrop-filter: blur(12px);
 }
 
 footer p {
   margin: 0;
 }
 
+/* ==========================================================================
+   Responsive Breakpoints
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
 @media (max-width: 900px) {
   .navbar {
     position: relative;
-    align-items: center;
-    justify-content: space-between;
-    flex-direction: row;
     padding: 16px 6%;
   }
 
@@ -482,11 +1587,10 @@ footer p {
 
   .navbar ul {
     position: absolute;
-    left: 0;
-    right: 0;
+    left: 16px;
+    right: 16px;
     top: 100%;
     display: grid;
-    width: 100%;
     max-height: 0;
     overflow: hidden;
     opacity: 0;
@@ -494,10 +1598,12 @@ footer p {
     transition: max-height 0.32s ease, opacity 0.32s ease, transform 0.32s ease;
     flex-direction: column;
     gap: 8px;
-    margin: 12px 0 0;
+    margin: 10px 0 0;
     padding: 0 16px;
-    background: rgba(2, 6, 23, 0.95);
-    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.98);
+    border: 1.5px solid rgba(242, 199, 199, 0.7);
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(255, 183, 197, 0.25);
   }
 
   .navbar ul.open {
@@ -513,7 +1619,7 @@ footer p {
 
   .navbar a {
     width: 100%;
-    padding: 12px 14px;
+    padding: 12px 16px;
   }
 
   .hero,
@@ -529,10 +1635,11 @@ footer p {
     min-height: auto;
     grid-template-columns: 1fr;
     text-align: left;
+    gap: 40px;
   }
 
   .hero .right {
-    margin-top: 36px;
+    margin-top: 24px;
   }
 
   .grid,
@@ -556,13 +1663,9 @@ footer p {
     font-size: 16px;
   }
 
-  .grid {
-    grid-template-columns: 1fr;
-  }
-
   .about p,
   .projectCard {
-    padding: 22px;
+    padding: 24px;
   }
 
   .heroActions {
@@ -580,6 +1683,16 @@ footer p {
     flex: 1 1 100%;
   }
 
+  .statusBadge {
+    left: 2px;
+    bottom: -6px;
+  }
+
+  .techBadge {
+    right: 2px;
+    top: -8px;
+  }
+
   .contactLinks a {
     align-items: flex-start;
     grid-template-columns: 26px 1fr;
@@ -593,20 +1706,11 @@ footer p {
 
 @media (max-width: 420px) {
   .navbar {
-    padding: 16px 4%;
+    padding: 14px 4%;
   }
 
   .navbar h2 {
-    font-size: 20px;
-  }
-
-  .navbar ul {
-    gap: 5px;
-  }
-
-  .navbar a {
-    padding: 7px 8px;
-    font-size: 14px;
+    font-size: 22px;
   }
 
   .hero,
@@ -618,13 +1722,26 @@ footer p {
   }
 
   .left h1 {
-    font-size: clamp(32px, 10vw, 56px);
+    font-size: clamp(34px, 9.5vw, 48px);
   }
 
-  .left h2,
+  .left h2 {
+    font-size: 18px;
+  }
+
   .left p,
   .about p {
     font-size: 15px;
+  }
+
+  .profileCard {
+    width: min(290px, 86vw);
+  }
+
+  .statusBadge,
+  .techBadge {
+    font-size: 11px;
+    padding: 7px 12px;
   }
 
   .heroActions,
@@ -638,18 +1755,14 @@ footer p {
 
   .contactLinks a {
     grid-template-columns: 24px 1fr;
-    gap: 14px;
+    gap: 12px;
   }
 
   .contactIcon {
     font-size: 20px;
   }
 
-  .contactLinks span {
-    font-size: 12px;
-  }
-
   .contactLinks strong {
-    font-size: 16px;
+    font-size: 15px;
   }
 }

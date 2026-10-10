@@ -49,7 +49,22 @@ function Hero() {
       </div>
 
       <div className="right">
-        <img className="profileImage" src={profileImage} alt="Harini profile" />
+        <div className="profileWrapper">
+          <div className="profileBackdrop backdropMint" aria-hidden="true" />
+          <div className="profileBackdrop backdropPink" aria-hidden="true" />
+          <div className="profileCard">
+            <div className="profileImageFrame">
+              <img className="profileImage" src={profileImage} alt="Harini portrait" />
+            </div>
+            <div className="profileBadge statusBadge">
+              <span className="statusDot" aria-hidden="true" />
+              <span>Available for Work</span>
+            </div>
+            <div className="profileBadge techBadge">
+              <span>🌸 Software Engineer</span>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );

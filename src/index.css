@@ -1,7 +1,28 @@
 :root {
-  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  color: #e2e8f0;
-  background: #020617;
+  --color-sakura-blush: #F2C7C7;
+  --color-white: #FFFFFF;
+  --color-matcha-mint: #D5F3D8;
+  --color-cherry-pink: #FFB7C5;
+  --color-cherry-deep: #D43F6B;
+  --color-cherry-accent: #E0537A;
+  --color-cherry-soft: #FFF0F3;
+  --color-matcha-deep: #1E4D2B;
+  --color-matcha-soft: #EAF8EC;
+  --color-text-main: #1D151F;
+  --color-text-body: #4A3E49;
+  --color-text-muted: #7E6C7A;
+  --color-bg-base: #FFFFFF;
+  --color-bg-soft: #FFF8F9;
+  --color-card-bg: rgba(255, 255, 255, 0.92);
+  --color-border: rgba(242, 199, 199, 0.55);
+  --color-border-hover: rgba(255, 183, 197, 0.85);
+  --shadow-sm: 0 4px 14px rgba(242, 199, 199, 0.25);
+  --shadow-md: 0 14px 34px rgba(255, 183, 197, 0.24);
+  --shadow-lg: 0 24px 54px rgba(255, 183, 197, 0.32);
+
+  font-family: 'Plus Jakarta Sans', Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: var(--color-text-main);
+  background: var(--color-bg-base);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -14,6 +35,8 @@
 
 body {
   margin: 0;
+  color: var(--color-text-body);
+  background: var(--color-bg-base);
 }
 
 button,
