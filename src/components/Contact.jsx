@@ -1,8 +1,9 @@
-import { FaEnvelope, FaGithub, FaPhoneAlt } from "react-icons/fa";
+import { FaEnvelope, FaGithub, FaLinkedin, FaPhoneAlt } from "react-icons/fa";
 
 const contactPhone = "+91 9245715348";
 const contactEmail = "harinikannan065@gmail.com";
 const githubUrl = "https://github.com/Harini052005";
+const linkedinUrl = "https://www.linkedin.com/in/harinikannan05/";
 
 function Contact() {
   return (
@@ -20,6 +21,12 @@ function Contact() {
           <FaEnvelope className="contactIcon" aria-hidden="true" />
           <span>Email</span>
           <strong>{contactEmail}</strong>
+        </a>
+
+        <a href={linkedinUrl} target="_blank" rel="noreferrer">
+          <FaLinkedin className="contactIcon" aria-hidden="true" />
+          <span>LinkedIn</span>
+          <strong>linkedin.com/in/harinikannan05</strong>
         </a>
 
         <a href={githubUrl} target="_blank" rel="noreferrer">

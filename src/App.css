@@ -1624,10 +1624,12 @@ footer p {
 
   .hero,
   .about,
+  .whatIDo,
+  .publications,
+  .hackathons,
   .skills,
   .projects,
-  .contact,
-  .whatIDo {
+  .contact {
     padding: 76px 6%;
   }
 
@@ -1666,6 +1668,21 @@ footer p {
   .about p,
   .projectCard {
     padding: 24px;
+  }
+
+  .publicationCard,
+  .hackathonCard {
+    padding: 22px 18px;
+    border-radius: 20px;
+  }
+
+  .pubContentLayout.withMedia,
+  .hackathonLayout {
+    gap: 22px;
+  }
+
+  .pillarItem {
+    padding: 12px 14px;
   }
 
   .heroActions {
@@ -1715,6 +1732,9 @@ footer p {
 
   .hero,
   .about,
+  .whatIDo,
+  .publications,
+  .hackathons,
   .skills,
   .projects,
   .contact {
